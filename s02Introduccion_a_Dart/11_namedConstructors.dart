@@ -1,24 +1,38 @@
+import 'dart:web_audio';
+
 void main(){
-  final spiderman = Heroe(
-    nombreHeroe: 'Spiderman',
-    nombre: 'Peter Parker',
-    poder: 'poderes aracnidos',
-    isAlive: true
 
-  );
+  /// aqui vamos a simular una respuesta desde http de un json 
+  
+  final Map <String, dynamic> rawJson = {
+    'nombre' : 'Tony Stark',
+    'nombreHeroe' : 'Ironman',
+    'poder' : ''
+  };
+  
 
-  final wolverine = Heroe(
-    nombreHeroe: 'Wolverine',
-    nombre: 'Logan',
-    poder: 'Regeneracion',
-    isAlive: false
-  );
+  // final spiderman = Heroe(
+  //   nombreHeroe: 'Spiderman',
+  //   nombre: 'Peter Parker',
+  //   poder: 'poderes aracnidos',
+  //   isAlive: true
+
+  // );
+
+  // final wolverine = Heroe(
+  //   nombreHeroe: 'Wolverine',
+  //   nombre: 'Logan',
+  //   poder: 'Regeneracion',
+  //   isAlive: false
+  // );
 
 
 
   print(spiderman);
   print(wolverine);
 }
+
+
 
 class Heroe {
   String nombre;
