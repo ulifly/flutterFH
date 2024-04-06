@@ -1,35 +1,17 @@
-import 'dart:web_audio';
-
 void main(){
 
-  /// aqui vamos a simular una respuesta desde http de un json 
+  /// aquí vamos a simular una respuesta desde http de un json 
   
   final Map <String, dynamic> rawJson = {
     'nombre' : 'Tony Stark',
-    'nombreHeroe' : 'Ironman',
-    'poder' : ''
+    'nombreHeroe' : 'Iron-man',
+    'poder ' : 'super inteligencia',
+    'isAlive' : true
   };
   
-
-  // final spiderman = Heroe(
-  //   nombreHeroe: 'Spiderman',
-  //   nombre: 'Peter Parker',
-  //   poder: 'poderes aracnidos',
-  //   isAlive: true
-
-  // );
-
-  // final wolverine = Heroe(
-  //   nombreHeroe: 'Wolverine',
-  //   nombre: 'Logan',
-  //   poder: 'Regeneracion',
-  //   isAlive: false
-  // );
-
-
-
-  print(spiderman);
-  print(wolverine);
+final ironman = Heroe.fromJson( rawJson );
+print(ironman);
+ 
 }
 
 
@@ -48,8 +30,19 @@ class Heroe {
 
   });
 
+  ///podemos crear varios constructores en una clase para adecuarlo a los argumentos recibidos
+  ///en este caso crearemos un constructor para trabajar con el simulador de la respuesta http que creamos anteriormente
+
+  
+  Heroe.fromJson( Map<String, dynamic> json)
+    : nombre = json['nombre'] ?? 'no se encuentra el nombre', 
+      nombreHeroe = json['nombreHeroe'] ?? 'no se encuentra el nombre',
+      poder = json['poder'] ?? 'no se encuentra poder', 
+      isAlive = json['isAlive'] ?? 'no se encuentra información de vida';
+
+
   @override
   String toString() {
-    return '$nombreHeroe - $poder - nombre real $nombre estado ${ isAlive ? 'disponible':'deceso'}';
+    return '$nombreHeroe - $poder - nombre real $nombre estado... => ${ isAlive ? 'disponible':'deceso'}';
     }
 }
